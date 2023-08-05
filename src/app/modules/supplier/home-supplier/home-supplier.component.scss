@@ -1,0 +1,32 @@
+#store .button_new {
+    text-align: center;
+    border-radius: 0;
+    width: 100%;
+    margin-top: 10px;
+    height: 46px;
+    line-height: 18px;
+    font-size: 13px;
+    color: #fff;
+}
+
+.btn {
+    position: relative;
+    font-weight: 500;
+    font-size: 14px;
+    color: #fff;
+    background: #2B2D42;
+    display: inline-block;
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+    z-index: 5;
+    display: inline-block;
+    padding: 13px 32px;
+    border-radius: 0px;
+    text-transform: uppercase;
+}
+
+.btn:hover {
+    color: #fff;
+    background: #D10024;
+}

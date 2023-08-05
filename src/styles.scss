@@ -1,0 +1,38 @@
+@use 'themes' as *;
+
+@use '@nebular/theme/styles/globals' as *;
+@use '@angular/material' as mat;
+@include nb-install() {
+  @include nb-theme-global();
+};
+
+@include mat.core();
+$diamono-primary: mat.define-palette(mat.$red-palette, 800);
+$diamono-accent: mat.define-palette(mat.$blue-grey-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$diamono-warn: mat.define-palette(mat.$yellow-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$diamono-theme: mat.define-light-theme((
+  color: (
+    primary: $diamono-primary,
+    accent: $diamono-accent,
+    warn: $diamono-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($diamono-theme);
+
+@import url("https: //fonts.googleapis.com/css?family=Montserrat:400,500,700");
+
+$primary-color: #D10024;
+$secondary-color: #1E1F29;
+$third-color: #2B2D42;
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
