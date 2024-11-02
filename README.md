@@ -1,27 +1,63 @@
-# Diamono
+# Diamono Services
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.1.
+## Execution du projet docker
 
-## Development server
+Commande de lancement du projet:
+``` 
+docker-compose up
+```
+Version Angular du projet [Angular CLI](https://github.com/angular/angular-cli) version 15.1.1.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+# Routes de l'application
 
-## Code scaffolding
+Voici les routes disponibles dans cette application Angular :
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+| Path               | Component              | Description                                      | Guard         |
+|--------------------|------------------------|--------------------------------------------------|---------------|
+| `/`                | HomeComponent          | Page d'accueil par défaut                        |               |
+| `/home`            | HomeComponent          | Page d'accueil                                   |               |
+| `/shop`            | StoreComponent         | Page de la boutique                              |               |
+| `/product`         | ProductComponent       | Détails d'un produit                             |               |
+| `/auth`            | AuthComponent          | Page de connexion et d'inscription               |               |
+| `/about`           | AboutComponent         | Page "À propos"                                  |               |
+| `/thankyou`        | ThankyouComponent      | Page de remerciement après une commande          |               |
+| `/checkout`        | CheckoutComponent      | Page de paiement                                 |               |
+| `/cart`            | CartComponent          | Page du panier                                   | AuthGuard     |
+| `/wish`            | WishComponent          | Page des souhaits                                | AuthGuard     |
+| `/userprofil`      | UserprofilComponent    | Profil utilisateur                               | AuthGuard     |
+| `/services`        | ServicesComponent      | Page des services                                |               |
+| `/supplier`        | HomeSupplierComponent  | Page pour les fournisseurs                       |               |
+| `/supplier/new`    | NewProductComponent    | Page de création d'un nouveau produit (fournisseur) |               |
+| `**`               | NotFoundComponent      | Page 404 pour les routes non définies            |               |
 
-## Build
+## Notes
+- Les routes protégées par `AuthGuard` nécessitent que l'utilisateur soit authentifié.
+- La route `**` est une route de type catch-all qui affiche le composant `NotFoundComponent` pour toutes les URL non définies.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+# Test des Guards avec des Identifiants déja configurés
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Certains composants de cette application sont protégés par un `AuthGuard`, nécessitant que l'utilisateur soit authentifié pour y accéder. Pour tester ces guards, utilisez les identifiants d'exemple suivants :
 
-## Running end-to-end tests
+### Identifiants de test
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+1. **Utilisateur 1**
+  - **Prénom** : Adama
+  - **Nom** : Diedhiou
+  - **Pseudo** : adams_dd
+  - **Email** : diedhiou.adama@ugb.edu.sn
+  - **Téléphone** : +221773456321
+  - **Mot de passe** : diedhiou
 
-## Further help
+2. **Utilisateur 2**
+  - **Prénom** : Solange
+  - **Nom** : Boissy
+  - **Pseudo** : solo_b
+  - **Email** : boissy.solarange@gmail.com
+  - **Téléphone** : +221786537832
+  - **Mot de passe** : boissy
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Comment tester
+
+1. **Authentification** : Utilisez l'un des identifiants ci-dessus pour vous connecter via la page `/auth`.
+2. **Accès aux routes protégées** : Après authentification, essayez d'accéder aux routes protégées par le `AuthGuard`, telles que `/cart`, `/wish`, et `/userprofil`. 
