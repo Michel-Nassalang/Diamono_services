@@ -59,5 +59,7 @@ Certains composants de cette application sont protégés par un `AuthGuard`, né
 
 ### Comment tester
 
+On se connecte avec le pseudo et mot de passe (mdp)
+
 1. **Authentification** : Utilisez l'un des identifiants ci-dessus pour vous connecter via la page `/auth`.
 2. **Accès aux routes protégées** : Après authentification, essayez d'accéder aux routes protégées par le `AuthGuard`, telles que `/cart`, `/wish`, et `/userprofil`. 
